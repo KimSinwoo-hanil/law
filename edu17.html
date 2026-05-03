@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>초중등교육법 제17조 학생 자치활동 학습자료</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.75;
+      color: #263238;
+      background:
+        radial-gradient(circle at top left, rgba(255, 213, 128, 0.45), transparent 32%),
+        radial-gradient(circle at top right, rgba(125, 211, 252, 0.45), transparent 32%),
+        linear-gradient(135deg, #f8fbff 0%, #eef7ff 35%, #fff8ec 100%);
+      min-height: 100vh;
+      padding: 36px 18px;
+    }
+
+    .page {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #2563eb 0%, #38bdf8 52%, #f59e0b 100%);
+      color: white;
+      border-radius: 34px;
+      padding: 48px 44px;
+      box-shadow: 0 25px 60px rgba(30, 64, 175, 0.22);
+      margin-bottom: 28px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .hero::before {
+      width: 240px;
+      height: 240px;
+      right: -70px;
+      top: -80px;
+    }
+
+    .hero::after {
+      width: 170px;
+      height: 170px;
+      left: -55px;
+      bottom: -70px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      font-size: 1.12rem;
+      opacity: 0.95;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: #1e3a8a;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      border-radius: 20px;
+      padding: 16px 18px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(30, 64, 175, 0.08);
+      transition: 0.2s ease;
+    }
+
+    .toc a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(30, 64, 175, 0.14);
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 26px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      font-size: 1.85rem;
+      color: #1d4ed8;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      font-size: 1.28rem;
+      color: #0f172a;
+      margin: 24px 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    .law-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #fff7ed 100%);
+      border: 2px solid rgba(37, 99, 235, 0.16);
+      border-left: 8px solid #2563eb;
+      border-radius: 24px;
+      padding: 28px;
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: #172554;
+      margin-top: 14px;
+    }
+
+    .highlight {
+      color: #1d4ed8;
+      font-weight: 900;
+    }
+
+    .note {
+      background: #f8fafc;
+      border-left: 5px solid #f59e0b;
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .mini-card {
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .mini-card strong {
+      display: block;
+      color: #1d4ed8;
+      font-size: 1.08rem;
+      margin-bottom: 7px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin: 10px 0 14px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .case-card,
+    .question-card {
+      border-radius: 24px;
+      padding: 24px;
+      margin: 18px 0;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .case-title,
+    .q-title {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 900;
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 12px;
+    }
+
+    .answer {
+      margin-top: 14px;
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .wrong-note {
+      margin-top: 10px;
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .choices {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .choices li {
+      background: #f8fafc;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 15px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+    }
+
+    .keyword-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      margin-top: 16px;
+      background: white;
+    }
+
+    .keyword-table th,
+    .keyword-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .keyword-table th {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    .keyword-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .footer {
+      text-align: center;
+      color: #475569;
+      padding: 30px 10px 12px;
+      font-size: 0.95rem;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .hero, section {
+        box-shadow: none;
+      }
+      .toc {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 18px 10px;
+      }
+      .hero, section {
+        padding: 26px 20px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-content">
+        <span class="badge">초중등교육법 제17조 학습자료</span>
+        <h1>학생 자치활동의 권장과 보호</h1>
+        <p class="subtitle">
+          학생회, 학급회의, 동아리 운영처럼 학생들이 스스로 의견을 모으고 학교생활에 참여하는 활동이 왜 중요하며, 학교는 이를 어떻게 보장해야 하는지 이해하는 자료입니다.
+        </p>
+      </div>
+    </header>
+
+    <nav class="toc">
+      <a href="#law">① 조문</a>
+      <a href="#explanation">② 조문 상세 해설</a>
+      <a href="#cases">③ 일상생활 속 사례</a>
+      <a href="#ox">④ OX 문제</a>
+      <a href="#multiple">⑤ 5지선다형 문제</a>
+    </nav>
+
+    <section id="law">
+      <h2>📘 1. 조문</h2>
+      <p>초중등교육법 제17조는 학생 자치활동에 관한 기본 원칙을 제시합니다.</p>
+      <div class="law-box">
+        학생의 자치활동은 권장ㆍ보호되며 조직과 운영의 기본 사항은 학칙으로 정한다.
+      </div>
+    </section>
+
+    <section id="explanation">
+      <h2>🔎 2. 조문 상세 해설</h2>
+
+      <h3>1) “학생의 자치활동”의 의미</h3>
+      <p>
+        <span class="highlight">학생의 자치활동</span>이란 학생들이 학교생활과 관련된 문제에 대하여 스스로 의견을 모으고, 대표를 뽑고, 회의를 열고, 필요한 활동을 계획하며 운영하는 것을 말합니다.
+      </p>
+      <p>대표적인 예시는 다음과 같습니다.</p>
+      <ul>
+        <li>학생회 활동</li>
+        <li>학급회의</li>
+        <li>동아리의 자율적 운영</li>
+        <li>학교 축제, 체육대회, 캠페인 등에 대한 학생 의견 수렴</li>
+        <li>학생 생활규칙에 대한 의견 제안</li>
+      </ul>
+
+      <h3>2) “권장”의 의미</h3>
+      <p>
+        “권장”은 학교가 학생 자치활동을 단순히 허락하는 데 그치지 않고, 학생들이 자치활동에 참여할 수 있도록 <span class="highlight">적극적으로 장려하고 지원해야 한다</span>는 뜻입니다.
+      </p>
+      <div class="note">
+        예를 들어 학교가 학생회 회의 장소를 제공하거나, 학생회 활동 시간을 마련하거나, 학생회가 제안한 의견을 공식적으로 검토하는 것은 “권장”의 취지에 맞는 행동입니다.
+      </div>
+
+      <h3>3) “보호”의 의미</h3>
+      <p>
+        “보호”는 학생 자치활동이 부당하게 방해받거나 형식적으로만 운영되지 않도록 지켜야 한다는 의미입니다. 학생회 선거에서 특정 후보를 지지하도록 강요하거나, 학생들이 자유롭게 의견을 말하지 못하게 압박하는 것은 자치활동 보호의 취지에 어긋날 수 있습니다.
+      </p>
+
+      <h3>4) “조직과 운영의 기본 사항은 학칙으로 정한다”의 의미</h3>
+      <p>
+        학생 자치활동은 아무 규칙 없이 이루어지는 것이 아니라, 학교 공동체 안에서 안정적으로 운영될 수 있도록 기본적인 사항을 <span class="highlight">학칙</span>으로 정합니다.
+      </p>
+      <table class="keyword-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>의미</th>
+            <th>구체적 예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>조직</td>
+            <td>자치활동을 담당하는 기구의 구성</td>
+            <td>학생회장, 부회장, 학급회장, 부서 구성</td>
+          </tr>
+          <tr>
+            <td>운영</td>
+            <td>자치활동을 실제로 진행하는 방식</td>
+            <td>회의 절차, 선거 방식, 의결 방법, 활동 보고</td>
+          </tr>
+          <tr>
+            <td>학칙</td>
+            <td>학교생활의 기본 규칙</td>
+            <td>학생회 규정, 선거 규정, 회의 규정</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid">
+        <div class="mini-card">
+          <strong>핵심 ① 권장</strong>
+          학생 자치활동을 적극적으로 장려하고 지원해야 합니다.
+        </div>
+        <div class="mini-card">
+          <strong>핵심 ② 보호</strong>
+          학생들의 자율적 의견 표현과 활동이 부당하게 침해되지 않아야 합니다.
+        </div>
+        <div class="mini-card">
+          <strong>핵심 ③ 학칙</strong>
+          학생회 구성, 선거, 회의 절차 등 기본 사항은 학칙으로 정합니다.
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <h2>🏫 3. 조문의 일상생활 속 사례</h2>
+
+      <div class="case-card">
+        <span class="case-title">사례 1. 학생회 선거 간섭</span>
+        <p>학생회장 선거에서 교사가 특정 후보를 지지하라고 학생들에게 말하고, 그 후보를 뽑는 것이 학교생활에 유리하다고 압박하였습니다.</p>
+        <div class="wrong-note">
+          <strong>판단:</strong> 법 취지에 어긋날 수 있습니다. 학생회 선거는 학생 자치활동의 중요한 부분이므로, 특정 후보 지지를 강요하는 행위는 학생 자치활동의 자율성과 보호 원칙을 침해할 수 있습니다.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-title">사례 2. 학생회 의견의 합리적 검토</span>
+        <p>학생회가 축제 프로그램을 제안하였고, 학교는 안전 문제와 예산 문제를 검토한 뒤 일부 프로그램은 수정하여 반영하였습니다.</p>
+        <div class="answer">
+          <strong>판단:</strong> 법 취지에 부합합니다. 학교가 학생회 의견을 무조건 받아들여야 하는 것은 아니지만, 합리적 이유를 바탕으로 검토하고 가능한 부분을 반영하는 것은 학생 자치활동을 존중하는 태도입니다.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-title">사례 3. 학칙으로 학생회 규정 정하기</span>
+        <p>학교는 학칙에 학생회장 선거 방식, 임기, 회의 절차, 의결 방식 등을 구체적으로 정하였습니다.</p>
+        <div class="answer">
+          <strong>판단:</strong> 적절합니다. 초중등교육법 제17조는 학생 자치활동의 조직과 운영의 기본 사항을 학칙으로 정하도록 하고 있습니다.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-title">사례 4. 모든 자치활동 전면 금지</span>
+        <p>학교가 시험 준비에 방해된다는 이유만으로 한 학기 동안 학생회 회의, 학급회의, 동아리 자치회의를 모두 금지하였습니다.</p>
+        <div class="wrong-note">
+          <strong>판단:</strong> 문제가 될 수 있습니다. 학업과 질서 유지를 위해 일정한 조정은 가능하지만, 모든 자치활동을 장기간 전면 금지하는 것은 학생 자치활동을 권장·보호해야 한다는 법의 취지에 어긋날 수 있습니다.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-title">사례 5. 학생회 활동비와 장소 지원</span>
+        <p>학교는 학생회가 캠페인을 준비할 수 있도록 회의실을 제공하고, 필요한 범위에서 활동비를 지원하였습니다.</p>
+        <div class="answer">
+          <strong>판단:</strong> 법 취지에 부합합니다. 학생 자치활동이 실제로 이루어지기 위해서는 공간, 시간, 예산, 절차상의 지원이 필요할 수 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <section id="ox">
+      <h2>⭕❌ 4. OX 문제와 상세 풀이</h2>
+
+      <div class="question-card">
+        <span class="q-title">OX 문제 1</span>
+        <p><strong>문제:</strong> 학교는 학생회 활동이 학업에 방해된다는 이유만으로 모든 학생 자치활동을 장기간 금지할 수 있다.</p>
+        <div class="answer">
+          <strong>정답: X</strong>
+          <p>초중등교육법 제17조는 학생 자치활동을 권장하고 보호한다고 규정합니다. 물론 학교는 시험 기간이나 안전 문제 등을 고려하여 일정이나 방식을 조정할 수 있습니다. 그러나 아무런 대안 없이 모든 자치활동을 장기간 전면 금지하는 것은 학생 자치활동을 보호하는 태도라고 보기 어렵습니다.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <span class="q-title">OX 문제 2</span>
+        <p><strong>문제:</strong> 학생회 구성, 선거 방식, 회의 절차 등 학생 자치활동의 조직과 운영에 관한 기본 사항은 학칙으로 정할 수 있다.</p>
+        <div class="answer">
+          <strong>정답: O</strong>
+          <p>조문에서 직접 “조직과 운영의 기본 사항은 학칙으로 정한다”고 규정하고 있습니다. 따라서 학생회장 선거 방식, 학생회 임기, 회의 절차, 의결 방법 등은 학칙이나 학칙에 근거한 세부 규정으로 정할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="multiple">
+      <h2>📝 5. 5지선다형 문제와 상세 풀이</h2>
+
+      <div class="question-card">
+        <span class="q-title">5지선다형 문제 1</span>
+        <p><strong>문제:</strong> 다음 중 초중등교육법 제17조의 취지에 가장 부합하는 설명은 무엇입니까?</p>
+        <ol class="choices">
+          <li>① 학생 자치활동은 학교장이 필요하다고 판단하면 언제든지 폐지할 수 있다.</li>
+          <li>② 학생 자치활동은 학생들이 하는 활동이므로 학교는 아무런 관심을 가질 필요가 없다.</li>
+          <li>③ 학생 자치활동은 학교에서 권장하고 보호해야 하며, 조직과 운영의 기본 사항은 학칙으로 정한다.</li>
+          <li>④ 학생 자치활동은 반드시 교사가 모든 내용을 결정해야 한다.</li>
+          <li>⑤ 학생 자치활동은 법과 관련이 없는 단순한 학교 행사일 뿐이다.</li>
+        </ol>
+        <div class="answer">
+          <strong>정답: ③</strong>
+          <p>제17조의 핵심은 학생 자치활동을 권장·보호한다는 점과, 그 조직과 운영의 기본 사항을 학칙으로 정한다는 점입니다.</p>
+        </div>
+        <div class="wrong-note">
+          <strong>오답 풀이:</strong>
+          <ul>
+            <li>① 학생 자치활동은 법적으로 권장·보호되므로 임의로 폐지하기 어렵습니다.</li>
+            <li>② 학교는 학생 자치활동을 방치하는 것이 아니라 지원하고 보호해야 합니다.</li>
+            <li>④ 교사는 지도와 조력을 할 수 있지만, 모든 내용을 일방적으로 결정하면 자치의 의미가 약해집니다.</li>
+            <li>⑤ 학생 자치활동은 초중등교육법에 규정된 교육활동의 한 부분입니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <span class="q-title">5지선다형 문제 2</span>
+        <p><strong>문제:</strong> 다음 사례 중 초중등교육법 제17조의 취지에 가장 어긋나는 것은 무엇입니까?</p>
+        <ol class="choices">
+          <li>① 학교가 학칙에 따라 학생회장 선거를 실시하였다.</li>
+          <li>② 학생회가 제안한 축제 의견을 학교가 검토한 뒤 일부 반영하였다.</li>
+          <li>③ 학교가 학생회 활동을 위해 회의 장소를 제공하였다.</li>
+          <li>④ 교사가 학생들에게 특정 학생회장 후보를 지지하도록 강요하였다.</li>
+          <li>⑤ 학생회 회의 절차를 학칙에 구체적으로 정하였다.</li>
+        </ol>
+        <div class="answer">
+          <strong>정답: ④</strong>
+          <p>학생회장 선거는 학생 자치활동의 대표적인 사례입니다. 교사가 특정 후보를 지지하도록 강요하면 학생들이 자율적으로 판단하고 선택할 권리가 침해될 수 있습니다.</p>
+        </div>
+        <div class="wrong-note">
+          <strong>오답 풀이:</strong>
+          <ul>
+            <li>① 학칙에 근거한 선거는 조문의 취지에 맞습니다.</li>
+            <li>② 학생 의견을 검토하고 일부 반영하는 것은 자치활동 존중에 가깝습니다.</li>
+            <li>③ 회의 장소 제공은 자치활동 권장의 구체적 예입니다.</li>
+            <li>⑤ 회의 절차를 학칙으로 정하는 것은 조문에 부합합니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <span class="q-title">5지선다형 문제 3</span>
+        <p><strong>문제:</strong> 학생 자치활동의 조직과 운영을 학칙으로 정하는 이유로 가장 적절한 것은 무엇입니까?</p>
+        <ol class="choices">
+          <li>① 학생들이 자치활동을 하지 못하게 하기 위해서이다.</li>
+          <li>② 학생회 활동을 학교장이 마음대로 통제하기 위해서이다.</li>
+          <li>③ 학생 자치활동이 학교 공동체 안에서 안정적이고 공정하게 운영되도록 하기 위해서이다.</li>
+          <li>④ 학생 자치활동을 시험 성적 평가에만 반영하기 위해서이다.</li>
+          <li>⑤ 학생 자치활동을 교사 업무로 바꾸기 위해서이다.</li>
+        </ol>
+        <div class="answer">
+          <strong>정답: ③</strong>
+          <p>학칙은 학생 자치활동을 없애기 위한 장치가 아니라, 선거·회의·의결·임기 등 기본 절차를 명확히 하여 학생 자치가 공정하고 안정적으로 이루어지도록 하는 기준입니다.</p>
+        </div>
+        <div class="wrong-note">
+          <strong>오답 풀이:</strong>
+          <ul>
+            <li>① 학칙은 자치활동을 금지하기 위한 것이 아니라 기본 질서를 정하기 위한 것입니다.</li>
+            <li>② 학칙을 근거로 하더라도 학생 자치활동의 본질을 훼손해서는 안 됩니다.</li>
+            <li>④ 학생 자치활동은 시험 성적만을 위한 활동이 아닙니다.</li>
+            <li>⑤ 학생 자치활동은 학생이 주체가 되는 활동이며, 교사는 조력자의 역할을 할 수 있습니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      초중등교육법 제17조 학생 자치활동 학습자료 · 조문 해설, 사례, 평가 문항 포함
+    </footer>
+  </main>
+</body>
+</html>
