@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>한글 맞춤법 제5항 학습지</title>
+  <style>
+    :root{
+      --ink:#1f2937;
+      --muted:#64748b;
+      --primary:#3657d6;
+      --primary2:#6d5dfc;
+      --accent:#ffb86c;
+      --mint:#5dd6b4;
+      --rose:#ff6b8a;
+      --card:#ffffffee;
+      --line:#e5e7eb;
+      --soft:#f8fafc;
+      --good:#15803d;
+      --bad:#b91c1c;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+      line-height:1.72;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,184,108,.36), transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(109,93,252,.28), transparent 28%),
+        radial-gradient(circle at 82% 85%, rgba(93,214,180,.30), transparent 30%),
+        linear-gradient(135deg,#f4f7ff 0%,#fff7ed 45%,#effdf7 100%);
+      min-height:100vh;
+    }
+    .wrap{max-width:1040px;margin:0 auto;padding:46px 22px 70px;}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:44px 38px;
+      border-radius:34px;
+      background:linear-gradient(135deg,rgba(54,87,214,.96),rgba(109,93,252,.88));
+      color:#fff;
+      box-shadow:0 24px 70px rgba(40,55,130,.25);
+    }
+    .hero:before{
+      content:"된소리";
+      position:absolute;
+      right:-18px;
+      bottom:-34px;
+      font-size:112px;
+      font-weight:900;
+      letter-spacing:-8px;
+      color:rgba(255,255,255,.10);
+    }
+    .kicker{font-weight:800;color:#fff3c4;margin-bottom:8px;letter-spacing:.04em;}
+    h1{margin:0;font-size:42px;line-height:1.2;letter-spacing:-1.5px;}
+    .subtitle{max-width:760px;margin:18px 0 0;color:rgba(255,255,255,.88);font-size:18px;}
+    .pillbox{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+    .pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.27);padding:8px 13px;border-radius:999px;font-weight:700;font-size:14px;}
+    section{margin-top:26px;padding:30px;border-radius:28px;background:var(--card);box-shadow:0 14px 42px rgba(30,41,59,.10);border:1px solid rgba(255,255,255,.72);backdrop-filter: blur(8px);}
+    h2{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-size:27px;letter-spacing:-.8px;}
+    h3{margin:24px 0 10px;font-size:21px;color:#27346a;}
+    .badge{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffe08a);font-size:19px;box-shadow:0 6px 15px rgba(255,184,108,.35);}
+    .lawbox{padding:24px;border-radius:22px;background:linear-gradient(135deg,#fff7ed,#ffffff);border:1px solid #fed7aa;}
+    .law-title{font-weight:900;font-size:20px;color:#9a3412;margin-bottom:12px;}
+    .lawtext{font-size:18px;font-weight:700;}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px;}
+    .mini{padding:18px;border-radius:20px;background:var(--soft);border:1px solid var(--line);}
+    .mini strong{color:#1e40af;}
+    .examples{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px;}
+    .tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:800;font-size:14px;}
+    .tag.orange{background:#fff7ed;color:#9a3412;}
+    .tag.green{background:#ecfdf5;color:#047857;}
+    .tag.red{background:#fff1f2;color:#be123c;}
+    .compare{width:100%;border-collapse:separate;border-spacing:0;margin-top:14px;overflow:hidden;border-radius:18px;border:1px solid var(--line);}
+    .compare th{background:#eef2ff;color:#27346a;text-align:left;padding:13px;font-size:15px;}
+    .compare td{padding:13px;border-top:1px solid var(--line);background:#fff;vertical-align:top;}
+    .note{padding:16px 18px;border-left:6px solid var(--primary);background:#f8fbff;border-radius:14px;margin:16px 0;color:#334155;}
+    .qcard{margin-top:18px;padding:22px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 22px rgba(15,23,42,.06);}
+    .qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;}
+    .qnum{font-weight:900;color:#3657d6;}
+    .answer{display:inline-block;padding:6px 12px;border-radius:999px;font-weight:900;background:#ecfdf5;color:var(--good);}
+    .wrong{color:var(--bad);font-weight:800;}
+    .right{color:var(--good);font-weight:900;}
+    .choice{margin:7px 0;padding:10px 12px;border-radius:14px;background:#f8fafc;border:1px solid #edf2f7;}
+    .choice.correct{background:#ecfdf5;border-color:#bbf7d0;}
+    .choice.incorrect{background:#fff1f2;border-color:#fecdd3;}
+    .footer{margin-top:26px;text-align:center;color:#64748b;font-size:14px;}
+    @media(max-width:760px){
+      .hero{padding:34px 24px}.hero:before{font-size:76px}.grid{grid-template-columns:1fr}h1{font-size:32px}section{padding:22px}h2{font-size:23px}.compare{font-size:14px}
+    }
+    @media print{
+      body{background:#fff}.wrap{padding:0}.hero,section{box-shadow:none;break-inside:avoid}.hero{color:#111;background:#fff;border:2px solid #111}.pill{border-color:#999;color:#111}.hero:before{display:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="kicker">고등학생 문법 평가 자료</div>
+      <h1>한글 맞춤법 제5항<br>된소리 표기 학습지</h1>
+      <p class="subtitle">한 단어 안에서 까닭 없이 나는 된소리를 언제 표기에 반영하는지, 그리고 언제 반영하지 않는지 사례와 문제로 확인합니다.</p>
+      <div class="pillbox">
+        <span class="pill">한 형태소 내부</span>
+        <span class="pill">두 모음 사이</span>
+        <span class="pill">ㄴ·ㄹ·ㅁ·ㅇ 받침 뒤</span>
+        <span class="pill">ㄱ·ㅂ 받침 뒤 예외</span>
+        <span class="pill">복합어 구별</span>
+      </div>
+    </header>
+
+    <section>
+      <h2><span class="badge">📜</span> 한글 맞춤법 제5항</h2>
+      <div class="lawbox">
+        <div class="law-title">제5항</div>
+        <p class="lawtext">한 단어 안에서 뚜렷한 까닭 없이 나는 된소리는 다음 음절의 첫소리를 된소리로 적는다.</p>
+        <h3>1. 두 모음 사이에서 나는 된소리</h3>
+        <div class="examples">
+          <span class="tag">소쩍새</span><span class="tag">어깨</span><span class="tag">오빠</span><span class="tag">으뜸</span><span class="tag">아끼다</span><span class="tag">기쁘다</span><span class="tag">깨끗하다</span><span class="tag">어떠하다</span><span class="tag">해쓱하다</span><span class="tag">가끔</span><span class="tag">거꾸로</span><span class="tag">부썩</span><span class="tag">어찌</span><span class="tag">이따금</span>
+        </div>
+        <h3>2. ‘ㄴ, ㄹ, ㅁ, ㅇ’ 받침 뒤에서 나는 된소리</h3>
+        <div class="examples">
+          <span class="tag green">산뜻하다</span><span class="tag green">잔뜩</span><span class="tag green">살짝</span><span class="tag green">훨씬</span><span class="tag green">담뿍</span><span class="tag green">움찔</span><span class="tag green">몽땅</span><span class="tag green">엉뚱하다</span>
+        </div>
+        <h3>다만, ‘ㄱ, ㅂ’ 받침 뒤의 된소리</h3>
+        <p>‘ㄱ, ㅂ’ 받침 뒤에서 나는 된소리는, 같은 음절이나 비슷한 음절이 겹쳐 나는 경우가 아니면 된소리로 적지 않습니다.</p>
+        <div class="examples">
+          <span class="tag orange">국수</span><span class="tag orange">깍두기</span><span class="tag orange">딱지</span><span class="tag orange">색시</span><span class="tag orange">싹둑</span><span class="tag orange">법석</span><span class="tag orange">갑자기</span><span class="tag orange">몹시</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="badge">🔍</span> 조항에 대한 해설</h2>
+      <p>이 조항에서 말하는 <strong>‘한 단어’</strong>는 실제로는 <strong>한 형태소로 이루어진 단어</strong>를 뜻한다고 이해할 수 있습니다. 즉, 규정의 핵심은 <strong>한 형태소 내부에서 특별한 음운론적 까닭 없이 된소리가 날 때, 그 된소리를 표기에 반영한다</strong>는 것입니다.</p>
+      <div class="note">중요한 판단 순서: <strong>① 한 형태소 내부인가?</strong> → <strong>② 된소리가 나는 위치가 어디인가?</strong> → <strong>③ ㄱ·ㅂ 받침 뒤처럼 된소리가 나는 뚜렷한 조건이 있는가?</strong></div>
+      <div class="grid">
+        <div class="mini">
+          <h3>① 두 모음 사이</h3>
+          <p>한 형태소 내부의 두 모음 사이에서 된소리가 나면 소리대로 적습니다. 예를 들어 <strong>어깨, 오빠, 새끼, 토끼, 가꾸다, 기쁘다, 아끼다</strong>가 여기에 해당합니다.</p>
+          <p>이 단어들을 ‘엇개, 옵바, 샛기, 톳기’처럼 적을 근거는 없습니다.</p>
+        </div>
+        <div class="mini">
+          <h3>② ㄴ·ㄹ·ㅁ·ㅇ 받침 뒤</h3>
+          <p>‘ㄴ, ㄹ, ㅁ, ㅇ’ 받침은 뒤의 예사소리를 항상 된소리로 바꾸는 필연적 조건이 아닙니다. 따라서 한 형태소 내부에서 이 받침 뒤에 된소리가 나면 표기에 반영합니다.</p>
+          <p>예: <strong>산뜻하다, 잔뜩, 살짝, 훨씬, 담뿍, 움찔, 몽땅</strong></p>
+        </div>
+      </div>
+      <h3>③ ㄱ·ㅂ 받침 뒤는 왜 된소리로 적지 않을까요?</h3>
+      <p>‘ㄱ, ㅂ’ 받침 뒤에 오는 ‘ㄱ, ㄷ, ㅂ, ㅅ, ㅈ’은 된소리로 발음되는 경향이 뚜렷합니다. 따라서 이 경우는 <strong>뚜렷한 까닭 없이 나는 된소리</strong>가 아니라, 받침 환경 때문에 나는 된소리로 보아 표기에 반영하지 않습니다.</p>
+      <table class="compare">
+        <thead><tr><th>발음</th><th>올바른 표기</th><th>잘못된 표기</th><th>이유</th></tr></thead>
+        <tbody>
+          <tr><td>[늑때]</td><td>늑대</td><td>늑때</td><td>ㄱ 받침 뒤 된소리이므로 반영하지 않음</td></tr>
+          <tr><td>[낙찌]</td><td>낙지</td><td>낙찌</td><td>ㄱ 받침 뒤 된소리이므로 반영하지 않음</td></tr>
+          <tr><td>[접씨]</td><td>접시</td><td>접씨</td><td>ㅂ 받침 뒤 된소리이므로 반영하지 않음</td></tr>
+          <tr><td>[갑짜기]</td><td>갑자기</td><td>갑짜기</td><td>ㅂ 받침 뒤 된소리이므로 반영하지 않음</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2><span class="badge">🧩</span> 조항에 대한 사례 정리</h2>
+      <h3>1. 된소리를 표기에 반영하는 경우</h3>
+      <table class="compare">
+        <thead><tr><th>조건</th><th>사례</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td>한 형태소 내부의 두 모음 사이</td><td>어깨, 오빠, 토끼, 아끼다</td><td>특별한 형태소 분석 근거 없이 된소리가 나므로 소리대로 적음</td></tr>
+          <tr><td>한 형태소 내부의 ㄴ·ㄹ·ㅁ·ㅇ 뒤</td><td>산뜻하다, 살짝, 훨씬, 담뿍, 몽땅</td><td>해당 받침이 된소리를 필연적으로 만드는 조건이 아니므로 소리대로 적음</td></tr>
+          <tr><td>같거나 비슷한 음절의 반복</td><td>똑똑하다, 쓱싹쓱싹, 쌉쌀하다</td><td>반복 구조에서는 예외적으로 같은 글자로 적음</td></tr>
+        </tbody>
+      </table>
+      <h3>2. 된소리를 표기에 반영하지 않는 경우</h3>
+      <table class="compare">
+        <thead><tr><th>조건</th><th>사례</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td>복합어 또는 형태소 결합</td><td>눈곱[눈꼽], 발바닥[발빠닥], 잠자리[잠짜리]</td><td>한 형태소 내부가 아니므로 제5항을 적용하지 않음</td></tr>
+          <tr><td>ㄱ·ㅂ 받침 뒤 된소리</td><td>국수, 낙지, 접시, 갑자기, 몹시</td><td>받침 환경 때문에 된소리가 나는 것이므로 된소리로 적지 않음</td></tr>
+          <tr><td>어간+어미, 어근+어근</td><td>믿고[믿꼬], 잊지[읻찌], 낯설다[낟썰다]</td><td>두 형태소가 결합한 말이므로 된소리를 표기에 반영하지 않음</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2><span class="badge">✅</span> OX 문제와 상세 해설</h2>
+      <div class="qcard">
+        <div class="qhead"><div class="qnum">OX 문제 1</div><span class="answer">정답 O</span></div>
+        <p><strong>‘어깨, 오빠’와 같은 단어는 한 형태소 내부에서 두 모음 사이에 된소리가 나타난 경우이므로, 소리 나는 대로 적은 것이다.</strong></p>
+        <p><strong>해설:</strong> ‘어깨, 오빠’는 하나의 형태소 내부에서 된소리가 나는 사례입니다. ‘엇개, 옵바’처럼 나누어 적을 근거가 없으므로, 실제 소리 나는 된소리를 표기에 반영하여 <span class="right">어깨, 오빠</span>로 적습니다.</p>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><div class="qnum">OX 문제 2</div><span class="answer">정답 X</span></div>
+        <p><strong>‘눈곱[눈꼽]’, ‘발바닥[발빠닥]’과 같이 복합어에서 나타나는 된소리는 제5항에 따라 된소리로 적는다.</strong></p>
+        <p><strong>해설:</strong> 제5항은 한 형태소 내부의 된소리 표기에 관한 규정입니다. ‘눈곱’, ‘발바닥’은 복합어이므로 된소리가 나더라도 표기에 반영하지 않습니다. 따라서 <span class="wrong">눈꼽, 발빠닥</span>이 아니라 <span class="right">눈곱, 발바닥</span>으로 적습니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="badge">📝</span> 5지선다형 문제와 상세 해설·오답 풀이</h2>
+      <div class="qcard">
+        <div class="qhead"><div class="qnum">문제 1</div><span class="answer">정답 ③</span></div>
+        <p><strong>다음 중 한글 맞춤법 제5항에 따라 올바르게 표기된 것은 무엇인가?</strong></p>
+        <div class="choice incorrect">① 눈꼽</div>
+        <div class="choice incorrect">② 발빠닥</div>
+        <div class="choice correct">③ 어깨</div>
+        <div class="choice incorrect">④ 갑짜기</div>
+        <div class="choice incorrect">⑤ 낙찌</div>
+        <p><strong>정답 해설:</strong> ‘어깨’는 한 형태소 내부에서 두 모음 사이에 된소리가 나타난 말이므로 소리대로 된소리를 적습니다.</p>
+        <p><strong>오답 풀이:</strong> ① ‘눈곱’은 복합어이므로 ‘눈꼽’으로 적지 않습니다. ② ‘발바닥’도 복합어이므로 ‘발빠닥’으로 적지 않습니다. ④ ‘갑자기’는 ㅂ 받침 뒤 된소리이므로 ‘갑짜기’로 적지 않습니다. ⑤ ‘낙지’는 ㄱ 받침 뒤 된소리이므로 ‘낙찌’로 적지 않습니다.</p>
+      </div>
+
+      <div class="qcard">
+        <div class="qhead"><div class="qnum">문제 2</div><span class="answer">정답 ④</span></div>
+        <p><strong>다음 중 된소리를 표기에 반영하지 않는 이유가 다른 하나는 무엇인가?</strong></p>
+        <div class="choice">① 낙지</div>
+        <div class="choice">② 갑자기</div>
+        <div class="choice">③ 접시</div>
+        <div class="choice correct">④ 눈곱</div>
+        <div class="choice">⑤ 늑대</div>
+        <p><strong>정답 해설:</strong> ‘눈곱’은 복합어이기 때문에 된소리를 표기에 반영하지 않습니다. 즉, 한 형태소 내부의 된소리가 아니므로 제5항의 직접 적용 대상이 아닙니다.</p>
+        <p><strong>오답 풀이:</strong> ① ‘낙지’, ⑤ ‘늑대’는 ㄱ 받침 뒤 된소리가 나는 경우입니다. ② ‘갑자기’, ③ ‘접시’는 ㅂ 받침 뒤 된소리가 나는 경우입니다. 이들은 받침 환경 때문에 된소리가 나는 것이므로 표기에 반영하지 않습니다.</p>
+      </div>
+
+      <div class="qcard">
+        <div class="qhead"><div class="qnum">문제 3</div><span class="answer">정답 ④</span></div>
+        <p><strong>다음 설명 중 옳은 것은 무엇인가?</strong></p>
+        <div class="choice incorrect">① 모든 된소리는 반드시 표기에 반영해야 한다.</div>
+        <div class="choice incorrect">② 복합어에서도 된소리가 나면 항상 된소리로 적는다.</div>
+        <div class="choice incorrect">③ ‘ㄴ, ㄹ, ㅁ, ㅇ’ 받침 뒤의 된소리는 표기에 반영하지 않는다.</div>
+        <div class="choice correct">④ 한 형태소 내부에서 특별한 이유 없이 나는 된소리는 소리대로 적는다.</div>
+        <div class="choice incorrect">⑤ ‘ㄱ, ㅂ’ 받침 뒤에서는 된소리가 절대로 나타나지 않는다.</div>
+        <p><strong>정답 해설:</strong> 제5항의 핵심은 ‘한 형태소 내부’에서 ‘뚜렷한 까닭 없이’ 나는 된소리는 다음 음절의 첫소리를 된소리로 적는다는 것입니다.</p>
+        <p><strong>오답 풀이:</strong> ① 모든 된소리를 적는 것은 아닙니다. ② 복합어는 된소리가 나도 표기에 반영하지 않는 경우가 많습니다. ③ ㄴ·ㄹ·ㅁ·ㅇ 받침 뒤의 된소리는 한 형태소 내부라면 표기에 반영합니다. ⑤ ㄱ·ㅂ 받침 뒤에서도 된소리는 나타나지만, 표기에 반영하지 않을 뿐입니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="badge">🎯</span> 학생용 핵심 정리</h2>
+      <div class="grid">
+        <div class="mini"><strong>1. 형태소 내부인가?</strong><br>한 형태소 내부라면 된소리를 적을 수 있습니다. 복합어라면 조심해야 합니다.</div>
+        <div class="mini"><strong>2. 어떤 받침 뒤인가?</strong><br>ㄴ·ㄹ·ㅁ·ㅇ 뒤의 된소리는 적는 경우가 많고, ㄱ·ㅂ 뒤의 된소리는 보통 적지 않습니다.</div>
+        <div class="mini"><strong>3. 왜 된소리가 나는가?</strong><br>뚜렷한 까닭이 없으면 적고, 받침 환경이나 형태소 결합 때문이면 적지 않습니다.</div>
+        <div class="mini"><strong>4. 반복 구조인가?</strong><br>똑똑, 쓱싹, 쌉쌀처럼 같거나 비슷한 음절이 반복되면 예외적으로 된소리를 적습니다.</div>
+      </div>
+    </section>
+
+    <div class="footer">한글 맞춤법 제5항 학습지 · 사례 중심 OX 및 5지선다형 평가 자료</div>
+  </main>
+</body>
+</html>
